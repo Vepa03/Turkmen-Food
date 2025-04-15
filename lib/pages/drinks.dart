@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:resept_app/list_provider.dart';
+import 'package:resept_app/orientation_widget.dart';
 
 class Drinks extends StatelessWidget {
   final List <Map<String, String>>
@@ -60,21 +61,29 @@ class Drinks extends StatelessWidget {
       "appbar":"Üzüm Şerbedi"
     },
   ];
-
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: OrientationWidget(landscape: _LandscapeContentMain(), portrait: _PortraitContentMain()));
+  }
+}
+class _PortraitContentMain extends StatelessWidget {
+  
+  const _PortraitContentMain();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(itemCount: recipes.length,
+      body: ListView.builder(itemCount: Drinks().recipes.length,
       itemBuilder: (context, index){
         return GestureDetector(
           onTap: (){
             Navigator.push(context, MaterialPageRoute(builder: (context)=> RecipeDetailScreen(
-              title: recipes[index]["title"]!, 
-              imageUrl: recipes[index]["image"]!, 
-              description: recipes[index]["description"]!,
-              appbar: recipes[index]["appbar"]!,)));
+              title: Drinks().recipes[index]["title"]!, 
+              imageUrl: Drinks().recipes[index]["image"]!, 
+              description: Drinks().recipes[index]["description"]!,
+              appbar: Drinks().recipes[index]["appbar"]!,)));
           },
-          child: RecipeCard(title: recipes[index]["title"]!, imageUrl: recipes[index]["image"]!),
+          child: RecipeCard(title: Drinks().recipes[index]["title"]!, imageUrl: Drinks().recipes[index]["image"]!),
         );
       },),
     );
@@ -126,6 +135,82 @@ class RecipeDetailScreen extends StatelessWidget {
               Image.asset(imageUrl, width: double.infinity, height: screenheight*0.35, fit: BoxFit.cover,),
               Text(title, style: TextStyle(fontSize: ululyk*0.07, fontWeight: FontWeight.bold),),
               Text(description, style: TextStyle(fontSize: ululyk*0.045),),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+class _LandscapeContentMain extends StatelessWidget {
+  
+  const _LandscapeContentMain();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView.builder(itemCount: Drinks().recipes.length,
+      itemBuilder: (context, index){
+        return GestureDetector(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> RecipeDetailScreen(
+              title: Drinks().recipes[index]["title"]!, 
+              imageUrl: Drinks().recipes[index]["image"]!, 
+              description: Drinks().recipes[index]["description"]!,
+              appbar: Drinks().recipes[index]["appbar"]!,)));
+          },
+          child: RecipeCardLand(title: Drinks().recipes[index]["title"]!, imageUrl: Drinks().recipes[index]["image"]!),
+        );
+      },),
+    );
+  }
+}
+
+class RecipeCardLand extends StatelessWidget {
+  final String title;
+  final String imageUrl;
+  const RecipeCardLand({required this.title, required this.imageUrl});
+
+  @override
+  Widget build(BuildContext context) {
+    double screenheight = MediaQuery.of(context).size.height;
+    double screenwidth = MediaQuery.of(context).size.width;
+    return Card(
+      child: Column(
+        children: [
+          Image.asset(imageUrl, height: screenheight*0.4, width: screenwidth*0.8),
+          Text(title, style: TextStyle(fontSize: Provider.of<ThemeProvider>(context, listen: false).size),),
+          SizedBox(height: 20,)
+        ],
+        
+      ),
+    );
+  }
+}
+class RecipeDetailScreenLand extends StatelessWidget {
+  final String title;
+  final String imageUrl;
+  final String description;
+  final String appbar;
+  const RecipeDetailScreenLand({required this.title, required this.imageUrl, required this.description, required this.appbar});
+
+  @override
+  Widget build(BuildContext context) {
+    double screenheight = MediaQuery.of(context).size.height;
+    double ululyk = MediaQuery.of(context).size.width;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(appbar),
+        backgroundColor: Theme.of(context).colorScheme.secondary,
+      ),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 15, right: 15, bottom: 10),
+          child: Column(
+            children: [
+              Image.asset(imageUrl, width: double.infinity, height: screenheight*0.5, fit: BoxFit.cover,),
+              Text(title, style: TextStyle(fontSize: ululyk*0.07, fontWeight: FontWeight.bold),),
+              Text(description, style: TextStyle(fontSize: ululyk*0.02),),
             ],
           ),
         ),
