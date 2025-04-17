@@ -14,6 +14,8 @@ import 'package:resept_app/pages/salads.dart';
 import 'package:resept_app/pages/soups.dart';
 import 'package:resept_app/pages/sweets.dart';
 import 'package:lottie/lottie.dart';
+import 'package:share_plus/share_plus.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -116,7 +118,7 @@ class _PortraitContentMainState extends State<_PortraitContentMain> {
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
-    return DefaultTabController(length: 8, 
+    return DefaultTabController(length: 7, 
     child: Scaffold(
       drawer: Drawer(
         child: Center(
@@ -134,6 +136,9 @@ class _PortraitContentMainState extends State<_PortraitContentMain> {
                     leading: Icon(Icons.share),
                     title: Text(Provider.of<ThemeProvider>(context, listen: false).translate('Paylaş'),
                     style: TextStyle(fontSize: screenwidth*0.045),),
+                    onTap: (){
+                      Share.share("https://babayev.vercel.app/");
+                    },
                   ),
                   ListTile(
                     leading: Icon(Icons.settings),
@@ -214,7 +219,6 @@ class _PortraitContentMainState extends State<_PortraitContentMain> {
           Tab(icon: Icon(Icons.dinner_dining), text: Provider.of<ThemeProvider>(context, listen: false).translate('Gyzgyn Naharlar')),
           Tab(icon: Icon(Icons.ramen_dining), text: Provider.of<ThemeProvider>(context, listen: false).translate('Içdä açarlar')),
           Tab(icon: Icon(Icons.cake), text: Provider.of<ThemeProvider>(context, listen: false).translate('Süýjiler')),
-          Tab(icon: Icon(Icons.heat_pump_sharp), text: "Halanlarym",)
         ]),
       ),
       body: TabBarView(children: [
@@ -225,7 +229,6 @@ class _PortraitContentMainState extends State<_PortraitContentMain> {
         Dinner(),
         Salads(),
         Sweets(),
-        Center(child: Text("Likes"),),
       ]),
     ));
   }
@@ -323,7 +326,7 @@ class _LandscapeContentMainState extends State<_LandscapeContentMain> {
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
-    return DefaultTabController(length: 8, 
+    return DefaultTabController(length: 7, 
     child: Scaffold(
       drawer: Drawer(
         child: Center(
@@ -421,7 +424,6 @@ class _LandscapeContentMainState extends State<_LandscapeContentMain> {
           Tab(icon: Icon(Icons.dinner_dining), text: Provider.of<ThemeProvider>(context, listen: false).translate('Gyzgyn Naharlar')),
           Tab(icon: Icon(Icons.ramen_dining), text: Provider.of<ThemeProvider>(context, listen: false).translate('Içdä açarlar')),
           Tab(icon: Icon(Icons.cake), text: Provider.of<ThemeProvider>(context, listen: false).translate('Süýjiler')),
-          Tab(icon: Icon(Icons.heat_pump_sharp), text: "Halanlarym",)
         ]),
       ),
       body: TabBarView(children: [
@@ -432,7 +434,6 @@ class _LandscapeContentMainState extends State<_LandscapeContentMain> {
         Dinner(),
         Salads(),
         Sweets(),
-        Center(child: Text("Likes"),),
       ]),
     ));
   }
