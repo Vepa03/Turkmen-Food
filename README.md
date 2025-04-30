@@ -1,6 +1,7 @@
 # resept_app
 
-A new Flutter project.
+This application was created to share the preparation methods of both traditional and modern Turkmen dishes with you. Our goal is to preserve the recipes of our rich national cuisine and pass them on to younger generations while also introducing them to the world. The app provides detailed information about Turkmen pastries, soups, main dishes, and desserts. Designed for food lovers, this app is very easy and convenient to use! With your support, we hope that "Turkmen Dishes" will spread even further and continue to promote Turkmen culture around the world.
+
 
 ## Getting Started
 
