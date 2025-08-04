@@ -1,17 +1,44 @@
-# resept_app
+# 🍲 Tasty Recipes App
 
-This application was created to share the preparation methods of both traditional and modern Turkmen dishes with you. Our goal is to preserve the recipes of our rich national cuisine and pass them on to younger generations while also introducing them to the world. The app provides detailed information about Turkmen pastries, soups, main dishes, and desserts. Designed for food lovers, this app is very easy and convenient to use! With your support, we hope that "Turkmen Dishes" will spread even further and continue to promote Turkmen culture around the world.
+**Tasty Recipes** is a Flutter-based mobile application designed for food lovers.  
+It helps users discover, save, and manage delicious recipes with a clean and modern UI.  
 
 
-## Getting Started
+|  Page |  Page |
+|------|----------|
+| <img src="https://github.com/user-attachments/assets/d1cb05df-7038-4fd8-9a1b-05fc220af337"   width="300"> | <img src="https://github.com/user-attachments/assets/73ec9e15-2c69-43b3-9eea-abe2bb01a3c3"   width="300"> |
 
-This project is a starting point for a Flutter application.
+|  Page | Page|
+|------------|-----------|
+| <img src="https://github.com/user-attachments/assets/8042d21e-f0dc-413b-a91a-941b01934c17"   width="300"> | <img src="https://github.com/user-attachments/assets/2d7a027e-e2bc-4062-803a-629020aacb44"  width="300"> |
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 📖 Browse and save recipes  
+- 🍽️ Organized recipe categories  
+- 🎬 Smooth animations with **Lottie**  
+- 🖼️ Custom icons using **icons_launcher**  
+- 🌐 Open external recipe links with **url_launcher**  
+- ⚡ State management with **Provider**  
+- 📱 Available for both **Android** and **iOS**
+
+---
+
+## 🛠️ Technologies Used
+
+- [Flutter](https://flutter.dev/)  
+- [Provider](https://pub.dev/packages/provider)  
+- [Lottie](https://pub.dev/packages/lottie)  
+- [URL Launcher](https://pub.dev/packages/url_launcher)  
+- [Icons Launcher](https://pub.dev/packages/icons_launcher)  
+
+---
+
+## 📦 Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/tasty_recipes.git
+   cd tasty_recipes
